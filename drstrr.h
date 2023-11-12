@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -6,6 +6,26 @@ using namespace std;
 class drstr {
 public:
 	string str;
+	
+	string split (char divine, int a){  
+    string delim = ",";   // строка или символ разделитель
+    size_t pos = 0;
+    size_t base_str_size = str.size();
+    size_t delim_size = delim.size();
+    string temp;
+    int i = 0;
+    string _return[5];
+    while (pos < base_str_size) {
+        temp = temp.assign(str, pos, str.find(delim, pos) - pos);
+        if (temp.size() > 0)  // проверка на пустую строку при необходимости
+        //cout << temp << endl;
+        _return[i] = temp;
+        i++;
+        pos += temp.size() + delim_size;
+    }
+    return _return[a];
+	}
+	
 	int conver_to_integer() {// conver to int
 		return stoi(str);
 	}
